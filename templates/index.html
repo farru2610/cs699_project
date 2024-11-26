@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WeatherFlow</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/weather-icons/2.0.10/css/weather-icons.css"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" style="display: none" class="spinner">
+      <div class="spin"></div>
+    </div>
+
+    <!-- Header Section -->
+    <header>
+      <div class="header-content">
+        <div>
+          <h1>WeatherFlow</h1>
+          <p>Your personalized weather app</p>
+        </div>
+        <button id="modeToggle" onclick="toggleMode()">Night Mode</button>
+      </div>
+
+      <nav>
+        <a href="\">Home</a>
+        <a href="stored_cities">Stored Cities</a>
+        <a href="about">About</a>
+        <a href="#contacts">Contacts</a>
+      </nav>
+    </header>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+      <input type="text" id="citySearch" placeholder="Enter city name..." />
+      <button onclick="searchCity()">Search</button>
+    </div>
+
+    <div id="map" style="height: 400px"></div>
+    <div id="weatherDisplay"></div>
+
+    <!-- Weather Details Section -->
+    <div class="weather-card">
+      <h2>Detailed Report</h2>
+      <p class="city-name" id="cityName"></p>
+      <p class="temperature" id="temp"></p>
+      <p class="wind" id="windSpeed"></p>
+      <i id="weatherIcon" class="wi"></i>
+
+      <!-- Temperature and Wind Speed Chart -->
+      <h3>Temperature Trend</h3>
+      <canvas id="temperatureChart" width="400" height="200"></canvas>
+      <br><br>
+      <h3>Wind Speed Trend</h3>
+      <canvas id="windSpeedChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Footer Section -->
+    <footer>
+      <p>&copy; 2024 WeatherFlow. All rights reserved.</p>
+      <p>Developed by:</p>
+      <p>Farhan Jawaid</p>
+      <p>Saba Mhabar</p>
+      <p>Sougata Sarkar</p>
+    </footer>
+
+    <button id="scrollToTopBtn" onclick="scrollToTop()">↑ Scroll to Top</button>
+
+    <script>
+      var mybutton = document.getElementById("scrollToTopBtn");
+
+      window.onscroll = function () {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+          mybutton.style.display = "block";
+        } else {
+          mybutton.style.display = "none";
+        }
+      };
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>
