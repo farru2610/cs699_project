@@ -1,6 +1,11 @@
 # WeatherFlow
 
-WeatherFlow is a web application that displays the weather information for different cities worldwide using OpenWeather API and Leaflet.js for interactive maps.
+This is a weather forecasting application that integrates a map, city search functionality, and dynamic visualizations to display weather data using real-time API calls.
+
+# Team Members
+1. Farhan Jawaid
+2. Saba Mhabar
+3. Sougata Sarkar
 
 ## Features
 - Interactive map for location-based weather search.
