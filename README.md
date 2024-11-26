@@ -22,5 +22,7 @@ This is a weather forecasting application that integrates a map, city search fun
 3. Install the required packages:
    ```bash
    pip install -r requirements.txt
-4. python weatherflow.py
-5. Go to the localhost site with 5000 port to access the working site.
+4. Run flask app
+   ```bash
+   python weatherflow.py
+6. Go to the localhost site with 5000 port to access the working site.
